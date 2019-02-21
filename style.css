@@ -316,6 +316,9 @@ tr.jan-dec>td:nth-child(1):hover,
 tr.jan-dec>td:nth-child(3):hover {
 	cursor: pointer;
 }
+td.td {
+	    text-align: center;
+}
 
 
 /*--------------------КАЛЕНДАРЬ-------------------*/

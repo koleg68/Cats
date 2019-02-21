@@ -1,10 +1,39 @@
   var Data = new Date();
+  console.log(Data.getDate());
   var Month = Data.getMonth();
   var Year = Data.getFullYear();
   var fMonth;
   var calendar = document.getElementsByClassName('td');
   var firstDay = new Date(Year, Month, 1).getDay();
+  console.log(firstDay);
   var lastDay = new Date(Data.getFullYear(), Data.getMonth() + 1, 0).getDate(); // последний день текущего месяца 
+  var arr = document.getElementsByTagName('th');
+  console.log(arr[1].innerHTML);
+
+  function currentDay() {
+      for (var j = 0; j < arr.length; j++) {
+          if (j < firstDay) {
+              calendar[j].innerHTML = '';
+
+          } else
+          return j;
+      }
+  }
+currentDay();
+
+  function enterDaysToCalendar() {
+
+      for (var i = 1; i < lastDay + 1; i++) {
+          if (i == Data.getDate()+4) {
+              calendar[i].classList.add('gradient');
+          }
+
+          calendar[i + currentDay()-1].innerHTML = i;
+          calendar.innerHTML++;
+      }
+
+  }
+  enterDaysToCalendar();
 
 
   window.onload = function () {
@@ -15,6 +44,7 @@
           scrolled = window.pageYOffset;
 
           scrollToTop();
+
       };
 
       function scrollToTop() {
@@ -38,8 +68,6 @@
           }
       };
   };
-
-
 
   function switchMonth(month) {
       switch (month) {
@@ -94,21 +122,14 @@
       Month = Month + 1;
       switchMonth(Month);
       setMonthAndYear();
+      currentDay();
+      enterDaysToCalendar();
   };
   document.getElementById('prev').onclick = function () {
 
       Month = Month - 1;
       switchMonth(Month);
       setMonthAndYear();
+      currentDay();
+      enterDaysToCalendar();
   };
-
-function enterDaysToCalendar() {
-    var arr = [];
-    for (var i = 1; i < lastDay + 1; i++) {
-        Data.setDate(i);
-        calendar.innerHTML = Data.getDate();
-        arr.push(calendar);
-
-    }
-    //   console.log(arr);
-}
