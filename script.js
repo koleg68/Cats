@@ -1,40 +1,25 @@
   var Data = new Date();
-  console.log(Data.getDate());
+//   console.log(Data.getDate());
   var Month = Data.getMonth();
   var Year = Data.getFullYear();
   var fMonth;
   var calendar = document.getElementsByClassName('td');
   var firstDay = new Date(Year, Month, 1).getDay();
-  console.log(firstDay);
   var lastDay = new Date(Data.getFullYear(), Data.getMonth() + 1, 0).getDate(); // последний день текущего месяца 
-  var arr = document.getElementsByTagName('th');
-  console.log(arr[1].innerHTML);
 
-  function currentDay() {
-      for (var j = 0; j < arr.length; j++) {
-          if (j < firstDay) {
-              calendar[j].innerHTML = '';
+function enterDaysToCalendar() {
 
-          } else
-          return j;
-      }
-  }
-currentDay();
-
-  function enterDaysToCalendar() {
-
-      for (var i = 1; i < lastDay + 1; i++) {
-          if (i == Data.getDate()+4) {
-              calendar[i].classList.add('gradient');
-          }
-
-          calendar[i + currentDay()-1].innerHTML = i;
-          calendar.innerHTML++;
-      }
-
-  }
-  enterDaysToCalendar();
-
+    for (var i = 1; i < lastDay+1; i++) {
+        for (var j =1; j<firstDay; j++) {
+            continue;
+        }
+        calendar[i+j-1].innerHTML = i;
+        if (i == Data.getDate()) {
+            calendar[i+j-1].classList.add('gradient');
+        }
+    } 
+}
+enterDaysToCalendar();
 
   window.onload = function () {
       var scrolled;
@@ -44,14 +29,13 @@ currentDay();
           scrolled = window.pageYOffset;
 
           scrollToTop();
-
       };
 
       function scrollToTop() {
 
           if (scrolled > 0) {
               window.scrollTo(0, scrolled);
-              scrolled = scrolled - 500; //100 скорость прокрутки
+              scrolled = scrolled - 500; // скорость прокрутки
               timer = setTimeout(scrollToTop, 100);
           } else {
               clearTimeout(timer);
@@ -122,7 +106,6 @@ currentDay();
       Month = Month + 1;
       switchMonth(Month);
       setMonthAndYear();
-      currentDay();
       enterDaysToCalendar();
   };
   document.getElementById('prev').onclick = function () {
@@ -130,6 +113,5 @@ currentDay();
       Month = Month - 1;
       switchMonth(Month);
       setMonthAndYear();
-      currentDay();
       enterDaysToCalendar();
   };
