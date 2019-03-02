@@ -200,6 +200,9 @@ section.two .wrope {
 	align-items: center;
 	margin-top: 30px;
 }
+.info {
+	width: 100%;
+}
 
 .info-all {
 	width: 33%;
@@ -358,9 +361,9 @@ td.td {
 	width: 33%;
 }
 
-.info-all>div:nth-child(1)>div:nth-child(1) {
-	margin-left: 22%;
-	display: inline-block;
+.info-all>div:nth-child(1)>div:nth-child(1) img {
+	display: block;
+	margin: auto;
 }
 
 .adres a {

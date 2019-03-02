@@ -1,5 +1,5 @@
 // собираем все якоря; устанавливаем время анимации и количество кадров
-const anchors = [].slice.call(document.querySelectorAll('a[href*="#"]')),
+var anchors = [].slice.call(document.querySelectorAll('a[href*="#"]')),
     animationTime = 300,
     framesCount = 20;
 
