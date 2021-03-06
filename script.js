@@ -184,3 +184,4 @@ anchors.forEach(function (item) {
           calendar[i].classList.remove('gradient');
       }
   }
+  
