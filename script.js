@@ -33,7 +33,6 @@ anchors.forEach(function (item) {
 });
   
   var Data = new Date();
-  //   console.log(Data.getDate());
   var Month = Data.getMonth();
   var Year = Data.getFullYear();
   var fMonth;
