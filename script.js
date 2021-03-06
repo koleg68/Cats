@@ -41,7 +41,6 @@ anchors.forEach(function (item) {
   var firstDay = new Date(Year, Month, 1).getDay();
   var lastDay = new Date(Data.getFullYear(), Data.getMonth() + 1, 0).getDate(); // последний день текущего месяца 
   var next = 1;
-  console.log(lastDay);
 
   function enterDaysToCalendar() {
 

@@ -31,10 +31,6 @@
 		max-width: 40%;
 	}
 
-	ul.head {
-		margin: 5px 10% 0;
-	}
-
 	.col-right>img:nth-child(1) {
 		position: absolute;
 		width: 100%;
