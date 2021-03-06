@@ -29,6 +29,8 @@ body {
 
 header {
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 a,
@@ -88,8 +90,8 @@ header > div > img {
   top: -90px;
 }
 
-li.hower{
-	border-radius: 3px;
+li.hower {
+  border-radius: 3px;
 }
 li.hower:hover {
   background-color: #5e2800;
@@ -110,10 +112,6 @@ li.hower a {
   height: 0;
 }
 
-/* nav.menu {
-  margin-left: 9%;
-} */
-
 .menu img {
   position: relative;
   z-index: 2;
@@ -126,7 +124,7 @@ ul.head {
   display: flex;
   justify-content: space-between;
   position: relative;
-  bottom: 60px;
+  bottom: 67px;
   z-index: 3;
   max-width: 500px;
   margin: 3px auto 0;
