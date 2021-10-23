@@ -25,6 +25,7 @@ section {
 
 body {
   background: url(img/bg.png);
+  font-size: clamp(12px, 2vw, 16px);
 }
 
 header {
@@ -93,16 +94,16 @@ header > div > img {
 li.hower {
   border-radius: 3px;
 }
-li.hower:hover {
-  background-color: #5e2800;
+li.hower a:hover {
+  color: #cf8b4e;
   transition-duration: 0.5s;
-  padding: 0 3px 0;
+  font-weight: bold;
 }
 
 li.hower a {
   display: block;
-  padding: 3px 10px;
 }
+
 .clearfix:after {
   visibility: hidden;
   display: block;
@@ -112,22 +113,22 @@ li.hower a {
   height: 0;
 }
 
-.menu img {
-  position: relative;
-  z-index: 2;
+nav.menu {
+  display: flex;
+  background-image: url(img/ribbon.png);
+  min-width: 784px;
+  min-height: 71px;
 }
+
 body > div.logo > img:nth-child(3) {
   width: 100%;
 }
 
 ul.head {
   display: flex;
-  justify-content: space-between;
-  position: relative;
-  bottom: 67px;
-  z-index: 3;
-  max-width: 500px;
-  margin: 3px auto 0;
+  width: 100%;
+  justify-content: space-evenly;
+  margin: 15px auto 0;
 }
 
 .one-all {
@@ -168,7 +169,7 @@ ul.head {
 .col-centre p {
   margin: 0 5px;
   color: #472d16;
-  font-size: 15px;
+  /* font-size: 15px; */
 }
 
 .col-right {
@@ -212,7 +213,7 @@ section.two .wrope {
 }
 
 .info p {
-  font-size: 13px;
+  /* font-size: 13px; */
   margin-left: 3%;
   color: #472d16;
   line-height: 1.4;
@@ -259,7 +260,7 @@ section.two > div:nth-child(3) {
 tr.first-row {
   text-transform: uppercase;
   color: #d3d3d3;
-  font-size: 12px;
+  /* font-size: 12px; */
 }
 
 tr.first-row th {
@@ -373,7 +374,7 @@ td.td {
 
 .adres span,
 .adres a {
-  font-size: 12px;
+  /* font-size: 12px; */
   color: #472d16;
 }
 
@@ -431,3 +432,5 @@ footer .black-cat img {
 .soutials {
   margin-top: 190px;
 }
+
+@import "media.css";
