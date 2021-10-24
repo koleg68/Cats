@@ -84,7 +84,7 @@
   }
 
   li.hower a {
-    padding: 10px 0;
+    padding: 5px 0;
   }
   li.hower a:hover {
     color: #622802;
@@ -158,7 +158,7 @@
     #checkbox:checked + ul.head {
       display: inline-block;
       top: 40px;
-      left: -9px;
+      left: 0px;
       transition: 0.5s;
     }
 
