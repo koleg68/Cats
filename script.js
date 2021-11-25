@@ -38,6 +38,7 @@ anchors.forEach(function (item) {
 });
 
 var Data = new Date();
+var Today = Data.getDate();
 var Month = Data.getMonth();
 var Year = Data.getFullYear();
 var fMonth;
@@ -129,6 +130,7 @@ function switchMonth(month) {
       fMonth = "december";
       break;
   }
+  return fMonth;
 }
 switchMonth(Month);
 
@@ -142,6 +144,10 @@ document.getElementById("next").onclick = function () {
   clearCalendar();
   next++;
   Month = Month + 1;
+  if (Month > 11) {
+    Month = 0;
+    Year++;
+  }
   switchMonth(Month);
   setMonthAndYear();
   lastDay = new Date(Data.getFullYear(), Data.getMonth() + next, 0).getDate();
@@ -154,19 +160,20 @@ document.getElementById("next").onclick = function () {
     }
     calendar[i + count].innerHTML = i;
   }
+  getCurrentDay();
   return next;
 };
 document.getElementById("prev").onclick = function () {
   clearCalendar();
   next--;
   Month = Month - 1;
+  if (Month < 0) {
+    Month = 11;
+    Year--;
+  }
   switchMonth(Month);
   setMonthAndYear();
-  lastDay = new Date(
-    Data.getFullYear(),
-    Data.getMonth() - (next - 1),
-    0
-  ).getDate();
+  lastDay = new Date(Data.getFullYear(), Data.getMonth() + next, 0).getDate();
   firstDay = new Date(Year, Month, 1).getDay();
 
   var count = 0;
@@ -177,6 +184,7 @@ document.getElementById("prev").onclick = function () {
     }
     calendar[i + count].innerHTML = i;
   }
+  getCurrentDay();
   return next;
 };
 
@@ -186,3 +194,38 @@ function clearCalendar() {
     calendar[i].classList.remove("gradient");
   }
 }
+
+const arr = [
+  "january",
+  "february",
+  "march",
+  "april",
+  "may",
+  "june",
+  "july",
+  "august",
+  "september",
+  "october",
+  "november",
+  "december",
+];
+
+function getCurrentDay() {
+  const test = document.getElementsByClassName("month")[0].innerHTML;
+  arr.forEach(function (value) {
+    const currentMonthAndYear = value + " " + Year.toString();
+    const cell = document.querySelectorAll("td.td");
+    if (test != currentMonthAndYear) {
+      for (let i of cell) {
+        i.classList.remove("gradient");
+      }
+    } else {
+      for (let i of cell) {
+        if (i.innerHTML == Today) {
+          i.classList.add("gradient");
+        }
+      }
+    }
+  });
+}
+// getCurrentDay();
