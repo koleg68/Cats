@@ -169,7 +169,6 @@ ul.head {
 .col-centre p {
   margin: 0 5px;
   color: #472d16;
-  /* font-size: 15px; */
 }
 
 .col-right {
@@ -213,7 +212,6 @@ section.two .wrope {
 }
 
 .info p {
-  /* font-size: 13px; */
   margin-left: 3%;
   color: #472d16;
   line-height: 1.4;
@@ -260,7 +258,6 @@ section.two > div:nth-child(3) {
 tr.first-row {
   text-transform: uppercase;
   color: #d3d3d3;
-  /* font-size: 12px; */
 }
 
 tr.first-row th {
@@ -286,19 +283,22 @@ td.month {
   border: none;
 }
 
-tr.jan-dec > td:nth-child(1) {
-  text-align: left;
-  padding-left: 5px;
-}
-
+tr.jan-dec > td:nth-child(1),
 tr.jan-dec > td:nth-child(3) {
-  text-align: right;
-  padding-right: 5px;
+  text-align: center;
+}
+tr.jan-dec > td:nth-child(1) img,
+tr.jan-dec > td:nth-child(3) img {
+  transition: width 0.5s;
 }
 
-tr.jan-dec > td:nth-child(1) > img,
-tr.jan-dec > td:nth-child(3) > img {
-  vertical-align: middle;
+tr.jan-dec > td:nth-child(1) img:hover,
+tr.jan-dec > td:nth-child(3) img:hover {
+  width: 30%;
+}
+
+tr.first-row th {
+  padding: 0 2px;
 }
 
 tr.jan-dec {
@@ -374,7 +374,6 @@ td.td {
 
 .adres span,
 .adres a {
-  /* font-size: 12px; */
   color: #472d16;
 }
 
@@ -430,7 +429,7 @@ footer .black-cat img {
 }
 
 .soutials {
-  margin-top: 190px;
+  margin: 190px 0 0 10px;
 }
 
 @import "media.css";
