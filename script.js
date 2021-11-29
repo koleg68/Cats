@@ -45,6 +45,7 @@ var fMonth;
 var calendar = document.getElementsByClassName("td");
 var firstDay = new Date(Year, Month, 1).getDay();
 var lastDay = new Date(Data.getFullYear(), Data.getMonth() + 1, 0).getDate(); // последний день текущего месяца
+var monthAndYearField = document.getElementsByClassName("month")[0];
 var next = 1;
 
 function enterDaysToCalendar() {
@@ -53,7 +54,7 @@ function enterDaysToCalendar() {
       continue;
     }
     calendar[i + j - 1].innerHTML = i;
-    if (i == Data.getDate()) {
+    if (i == Today) {
       calendar[i + j - 1].classList.add("gradient");
     }
   }
@@ -211,21 +212,22 @@ const arr = [
 ];
 
 function getCurrentDay() {
-  const test = document.getElementsByClassName("month")[0].innerHTML;
-  arr.forEach(function (value) {
-    const currentMonthAndYear = value + " " + Year.toString();
-    const cell = document.querySelectorAll("td.td");
-    if (test != currentMonthAndYear) {
-      for (let i of cell) {
-        i.classList.remove("gradient");
-      }
-    } else {
-      for (let i of cell) {
-        if (i.innerHTML == Today) {
-          i.classList.add("gradient");
+  const cell = document.querySelectorAll("td.td");
+  for (let i of cell) {
+    i.classList.remove("gradient");
+  }
+  arr.forEach(function (value, index) {
+    if (index == new Date().getMonth()) {
+      const currentMonthAndYear = value + " " + Year.toString();
+      if (monthAndYearField.innerHTML == currentMonthAndYear) {
+        for (let i of cell) {
+          if (i.innerHTML == Today.toString()) {
+            i.classList.add("gradient");
+          }
         }
       }
     }
   });
-}
-// getCurrentDay();
+};
+
+
